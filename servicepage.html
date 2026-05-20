@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>울림 - 스마트한 의류 수거 가이드</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { color: #333; line-height: 1.7; background-color: #f9f9f9; }
+        :root { --primary-color: #115c32; --point-color: #4bb543; --bg-light: #f4f9f4; --accent-orange: #e67e22; }
+        header { position: fixed; top: 0; left: 0; width: 100%; background-color: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.05); z-index: 1000; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 20px; }
+        .logo a { font-size: 24px; font-weight: bold; color: var(--primary-color); text-decoration: none; letter-spacing: 1px; }
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 30px; }
+        nav ul li a { text-decoration: none; color: #555; font-weight: 600; font-size: 16px; transition: color 0.3s; }
+        nav ul li a:hover { color: var(--primary-color); }
+        section { padding: 120px 20px 100px 20px; min-height: 85vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        .section-title { font-size: 32px; color: var(--primary-color); margin-bottom: 15px; font-weight: 700; }
+        .section-desc { font-size: 18px; color: #666; max-width: 800px; margin-bottom: 50px; }
+        #guide-home { background: linear-gradient(rgba(244, 249, 244, 0.85), rgba(244, 249, 244, 0.85)), url('https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1600&q=80'); background-size: cover; background-position: center; min-height: 90vh; }
+        #guide-home h1 { font-size: 44px; color: var(--primary-color); margin-bottom: 20px; line-height: 1.3; }
+        .highlight { color: var(--point-color); font-weight: bold; }
+        .btn-link { display: inline-block; background-color: var(--primary-color); color: #fff; padding: 14px 35px; text-decoration: none; border-radius: 30px; font-weight: bold; font-size: 16px; transition: background-color 0.3s, transform 0.2s; box-shadow: 0 4px 15px rgba(17, 92, 50, 0.2); margin-top: 10px; }
+        .btn-link:hover { background-color: #0b3d21; transform: translateY(-2px); }
+        #criteria { background-color: #fff; }
+        .alert-box { background-color: #fff3cd; border-left: 5px solid var(--accent-orange); padding: 20px; border-radius: 4px; text-align: left; max-width: 600px; margin-bottom: 30px; color: #856404; font-weight: 500; }
+        #methods { background-color: var(--bg-light); }
+        .card-container { display: flex; gap: 30px; max-width: 1000px; justify-content: center; flex-wrap: wrap; }
+        .card { background: #fff; padding: 40px 30px; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.04); width: 450px; text-align: left; border-top: 5px solid var(--primary-color); }
+        .card h3 { color: var(--primary-color); margin-bottom: 15px; font-size: 22px; display: flex; align-items: center; gap: 10px; }
+        .card ul { list-style-type: none; margin-top: 15px; }
+        .card ul li { margin-bottom: 8px; color: #555; position: relative; padding-left: 15px; }
+        .card ul li::before { content: "•"; color: var(--point-color); font-weight: bold; position: absolute; left: 0; }
+        #process { background-color: #fff; }
+        .steps { display: flex; justify-content: center; gap: 20px; max-width: 1100px; flex-wrap: wrap; margin-bottom: 40px; }
+        .step-box { background: var(--bg-light); padding: 30px 20px; border-radius: 12px; width: 280px; position: relative; }
+        .step-num { font-size: 14px; font-weight: bold; color: #fff; background: var(--point-color); padding: 3px 12px; border-radius: 20px; display: inline-block; margin-bottom: 15px; }
+        .step-box h4 { color: var(--primary-color); font-size: 18px; margin-bottom: 10px; }
+        .step-box p { font-size: 14px; color: #666; }
+        footer { background-color: #333; color: #fff; padding: 40px 20px; text-align: center; font-size: 14px; }
+        footer p { margin-bottom: 5px; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo"><a href="mainpage.html">울림</a></div>
+            <nav>
+                <ul>
+                    <li><a href="#criteria">수거기준</a></li>
+                    <li><a href="#methods">수거방식</a></li>
+                    <li><a href="#process">이용과정</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section id="guide-home">
+        <h1>옷장 정리를 위한 가장 스마트한 방법<br><span class="highlight">울림 의류 수거 서비스 100% 이용하기</span></h1>
+        <p class="section-desc">지구를 구하는 작은 발걸음, 버리지 말고 울림 하세요. 무게 상관없이 간편하게 신청하고 리워드까지 챙길 수 있는 간편 이용 가이드입니다.</p>
+        <a href="https://www.recl.co.kr/v2/guide" target="_blank" class="btn-link">리클 공식 가이드 원본 보기</a>
+    </section>
+    <section id="criteria">
+        <h2 class="section-title">무엇을 얼마나 보낼 수 있나요?</h2>
+        <p class="section-desc">수거 가능한 품목과 기본 수량 기준을 확인해 주세요.</p>
+        <div class="alert-box">
+            <strong>⚠️ 꼭 확인해 주세요!</strong><br>
+            성인의류, 가방, 신발의 합계 수량이 <strong>총 20개 이상</strong>일 때부터 유상 매입 수거 서비스가 가능합니다. (20개 미만일 경우 무상 수거로 변환되거나 서비스 이용이 어려울 수 있으니 조금만 더 모아서 신청해 주세요!)
+        </div>
+        <div class="card-container">
+            <div class="card" style="width: 500px;">
+                <h3>✨ 수거 가능 품목</h3>
+                <p>무게와 상관없이 개수 기준으로 체크합니다.</p>
+                <ul>
+                    <li><strong>의류:</strong> 티셔츠, 셔츠, 바지, 아우터 등 모든 성인 의류</li>
+                    <li><strong>패션 잡화:</strong> 가방, 신발 등 (상태가 양호하여 재사용 가능한 것)</li>
+                    <li><strong>정산 혜택:</strong> 기본 매입 단가 정산 + 상태가 좋은 옷은 '플러스 매입' 정산 추가</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section id="methods">
+        <h2 class="section-title">지역별 수거 방식 안내</h2>
+        <p class="section-desc">거주하시는 지역에 따라 가장 편리한 방법으로 수거를 진행합니다.</p>
+        <div class="card-container">
+            <div class="card">
+                <h3>🚚 울림 픽업 (비대면 자체 수거)</h3>
+                <p><strong>가능 지역:</strong> 서울 전 지역, 경기 일부 (고양, 광명, 성남, 부천), 인천 (일부 제외)</p>
+                <ul>
+                    <li>약속된 수거일 오전 8시 전까지 문 앞에 내놓아주세요.</li>
+                    <li>자체 픽업 팀이 대면하지 않고 안전하게 수거해 갑니다.</li>
+                    <li>최적화 경로에 따라 비대면으로 신속히 수거가 완료됩니다.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>📦 전국 택배 수거</h3>
+                <p><strong>가능 지역:</strong> 대한민국 전 지역 (자체 픽업 지역 및 일부 도서산간 제외)</p>
+                <ul>
+                    <li>앱으로 신청 시 대용량 수거 키트(70L)를 집으로 미리 보내드립니다.</li>
+                    <li>보내드린 전용 키트에 옷을 가득 담아 문 앞에 두면 끝!</li>
+                    <li>지정 택배사에서 방문하여 간편하게 회수해 갑니다.</li>
+                </ul>
+            </div>
+        </div>
+        <br><br>
+        <a href="https://www.beautifulstore.org/about-donation" target="_blank" class="btn-link">택배 수거 가이드 자세히 보기</a>
+    </section>
+    <section id="process">
+        <h2 class="section-title">단 3단계, 간편한 이용 과정</h2>
+        <p class="section-desc">신청부터 정산까지, 집 밖으로 나갈 필요 없이 스마트하게 끝납니다.</p>
+        <div class="steps">
+            <div class="step-box">
+                <span class="step-num">01</span>
+                <h4>앱에서 간편 신청</h4>
+                <p>주소와 원하는 수거 방식, 일자를 선택해 등록하면 확정 알림이 발송됩니다.</p>
+            </div>
+            <div class="step-box">
+                <span class="step-num">02</span>
+                <h4>문 앞에 내놓기</h4>
+                <p>정리한 옷들을 봉투나 전용 키트에 담아 수거일 문 앞에 두시면 끝납니다.</p>
+            </div>
+            <div class="step-box">
+                <span class="step-num">03</span>
+                <h4>검수 후 현금 정산</h4>
+                <p>센터 입고 후 꼼꼼히 검수하여 매입 금액을 현금 또는 포인트로 지급해 드립니다.</p>
+            </div>
+        </div>
+        <a href="https://recl.co.kr/landing" target="_blank" class="btn-link">지금 수거 신청하기</a>
+    </section>
+    <footer>
+        <p>© 울림 x 리클 가이드 실습 페이지</p>
+        <p style="color: #999; font-size: 12px;">본 페이지는 리클(Recl Corp.)의 실제 이용 가이드를 바탕으로 '울림' 스타일 디자인을 적용한 코딩 실습 결과물입니다.</p>
+    </footer>
+</body>
+</html>
