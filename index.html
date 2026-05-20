@@ -67,6 +67,22 @@
         
         footer { background-color: var(--colors-ink); color: var(--colors-ink-subtle); padding: 40px 20px; text-align: center; font-size: 14px; border-top: 1px solid var(--colors-hairline); }
         footer p { max-width: 1200px; margin: 0 auto; letter-spacing: -0.2px; }
+
+        /* 📱 스마트폰 화면 전용 자동 폰트 축소 시스템 */
+        @media (max-width: 768px) {
+            .nav-container { padding: 0 20px; }
+            nav ul li { margin-left: 16px; }
+            nav ul li a { font-size: 14px; }
+            section { padding: 100px 20px 60px 20px; }
+            #home h1 { font-size: 28px; letter-spacing: -0.8px; }
+            .section-title { font-size: 26px; letter-spacing: -0.5px; }
+            .section-desc { font-size: 15px; margin-bottom: 32px; }
+            .card-container { gap: 16px; }
+            .card { width: 100%; padding: 24px; }
+            .cs-info { font-size: 22px; }
+            .btn-link { width: 100%; padding: 14px 20px; text-align: center; }
+            .method-box { width: 100%; text-align: center; padding: 16px; }
+        }
     </style>
 </head>
 <body>

@@ -24,16 +24,13 @@
         header { position: fixed; top: 0; left: 0; width: 100%; background-color: var(--colors-surface-1); border-bottom: 1px solid var(--colors-hairline); z-index: 1000; height: 64px; display: flex; align-items: center; }
         .nav-container { max-width: 1200px; width: 100%; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 40px; }
         .logo a { font-size: 20px; font-weight: 800; color: var(--colors-primary); text-decoration: none; }
-        
-        .back-link { text-decoration: none; color: var(--colors-ink-muted); font-weight: 600; font-size: 15px; transition: color 0.2s; }
-        .back-link:hover { color: var(--colors-primary); }
 
         .container { max-width: 800px; margin: 120px auto 60px auto; padding: 0 24px; }
         h1 { font-size: 36px; font-weight: 700; color: var(--colors-primary); margin-bottom: 16px; letter-spacing: -1.0px; text-align: center; }
         .page-desc { font-size: 17px; color: var(--colors-ink-muted); text-align: center; margin-bottom: 48px; }
 
         .info-section { background-color: var(--colors-surface-1); padding: 40px; border-radius: 12px; border: 1px solid var(--colors-hairline); margin-bottom: 32px; box-shadow: 0 4px 12px rgba(0,0,0,0.01); }
-        .info-section h2 { font-size: 22px; color: var(--colors-primary); margin-bottom: 20px; font-weight: 700; border-btoom: unset; padding-bottom: 0; }
+        .info-section h2 { font-size: 22px; color: var(--colors-primary); margin-bottom: 20px; font-weight: 700; }
         .info-section ul { list-style-position: inside; margin-bottom: 20px; color: var(--colors-ink-muted); }
         .info-section ul li { margin-bottom: 8px; }
 
@@ -41,13 +38,24 @@
         .btn-link { display: inline-block; background-color: var(--colors-primary); color: #ffffff; padding: 16px 48px; text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 16px; transition: background-color 0.2s, transform 0.1s; box-shadow: 0 4px 12px rgba(17, 92, 50, 0.15); }
         .btn-link:hover { background-color: var(--colors-primary-hover); }
         .btn-link:active { transform: scale(0.98); }
+
+        /* 📱 모바일 화면 전용 조정 */
+        @media (max-width: 768px) {
+            .nav-container { padding: 0 20px; }
+            .container { margin-top: 100px; padding: 0 16px; }
+            h1 { font-size: 26px; }
+            .page-desc { font-size: 15px; margin-bottom: 32px; }
+            .info-section { padding: 24px; margin-bottom: 20px; }
+            .info-section h2 { font-size: 18px; margin-bottom: 14px; }
+            .info-section ul li { font-size: 14px; }
+            .btn-link { width: 100%; padding: 14px 20px; text-align: center; }
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="nav-container">
             <div class="logo"><a href="index.html">울림</a></div>
-            <a href="index.html" class="back-link">❮ 메인으로 돌아가기</a>
         </div>
     </header>
 
