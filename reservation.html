@@ -3,110 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>울림 - 수거 예약</title>
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <title>울림 - 스마트 의류 수거 예약</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
     <style>
-        /* Linear Light Design System Tokens */
         :root {
-            --colors-canvas: #f7f8f9;          /* 라이트 모드 기본 캔버스 배경 */
-            --colors-surface-1: #ffffff;      /* 배경 위에 뜨는 하얀색 카드 표면 */
-            --colors-surface-2: #f1f3f5;      /* 호버나 컴포넌트 내 기본 블록 */
-            --colors-surface-3: #e9ecef;      /* 선택된 영역 블록 */
-            --colors-primary: #4d56b3;        /* 가독성이 확보된 밝은 라벤더 블루 */
-            --colors-primary-hover: #3b4293;  /* 호버 시 더 짙어지는 라벤더 */
-            --colors-primary-focus: #4d56b3;
-            --colors-hairline: #e2e4e7;       /* 얇은 경계 실선 */
-            --colors-hairline-strong: #ced4da; /* 강조 경계 실선 */
-            --colors-ink: #121314;            /* 메인 텍스트 (완전 블랙이 아닌 딥 차콜) */
-            --colors-ink-muted: #495057;      /* 서브 텍스트 */
-            --colors-ink-subtle: #868e96;     /* 캡션 및 자리표시자 텍스트 */
-            --colors-semantic-success: #218838;
+            --colors-canvas: #f8faf7;
+            --colors-surface-1: #ffffff;
+            --colors-surface-2: #edf2ec;
+            --colors-surface-3: #dbe5da;
+            --colors-primary: #115c32;
+            --colors-primary-hover: #0b3d21;
+            --colors-primary-focus: rgba(17, 92, 50, 0.2);
+            --colors-hairline: #e1e6e0;
+            --colors-hairline-strong: #b9c4b7;
+            --colors-ink: #1a1c1a;
+            --colors-ink-muted: #4a504a;
+            --colors-ink-subtle: #828a81;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-        body { background-color: var(--colors-canvas); color: var(--colors-ink); padding-bottom: 60px; -webkit-font-smoothing: antialiased; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif; }
+        body { background-color: var(--colors-canvas); color: var(--colors-ink); padding-bottom: 80px; -webkit-font-smoothing: antialiased; line-height: 1.6; }
         
-        /* 톱 네비게이션 (top-nav) */
-        .top-nav { background-color: var(--colors-surface-1); border-bottom: 1px solid var(--colors-hairline); position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; height: 56px; display: flex; align-items: center; padding: 0 24px; }
-        .back-btn { background: none; border: none; font-size: 16px; cursor: pointer; color: var(--colors-ink-muted); margin-right: 16px; text-decoration: none; transition: color 0.2s; }
-        .back-btn:hover { color: var(--colors-ink); }
-        .header-title { font-size: 14px; font-weight: 500; letter-spacing: -0.05px; color: var(--colors-ink); }
+        .web-nav { background-color: var(--colors-surface-1); border-bottom: 1px solid var(--colors-hairline); position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; height: 64px; display: flex; align-items: center; padding: 0 40px; }
+        .back-btn { background: none; border: none; font-size: 15px; font-weight: 500; cursor: pointer; color: var(--colors-ink-muted); margin-right: 24px; text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color 0.2s; }
+        .back-btn:hover { color: var(--colors-primary); }
+        .header-title { font-size: 16px; font-weight: 700; letter-spacing: -0.3px; color: var(--colors-primary); }
 
-        /* 컨테이너 및 섹션 배치 */
-        .container { max-width: 600px; margin: 96px auto 20px auto; padding: 0 20px; }
+        .container { max-width: 720px; margin: 120px auto 40px auto; padding: 0 24px; }
+        h1 { font-size: 36px; font-weight: 700; line-height: 1.2; letter-spacing: -1.0px; color: var(--colors-primary); margin-bottom: 12px; }
+        .page-desc { font-size: 16px; color: var(--colors-ink-muted); line-height: 1.6; letter-spacing: -0.2px; margin-bottom: 40px; }
         
-        /* 헤드라인 타이포그래피 (display-lg & subhead) */
-        h1 { font-size: 40px; font-weight: 600; line-height: 1.15; letter-spacing: -1.0px; color: var(--colors-ink); margin-bottom: 12px; }
-        .page-desc { font-size: 16px; color: var(--colors-ink-muted); line-height: 1.5; letter-spacing: -0.2px; margin-bottom: 48px; }
+        .sub-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--colors-primary); margin: 36px 0 16px 0; border-bottom: 2px solid var(--colors-primary); padding-bottom: 6px; }
         
-        /* 서브섹션 타이틀 (eyebrow 적용) */
-        .sub-title { font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.4px; color: var(--colors-primary); margin: 32px 0 12px 0; }
-        
-        /* 입력 폼 및 요소 (text-input) */
-        .form-group { margin-bottom: 20px; text-align: left; }
-        .form-group label { display: block; font-size: 13px; font-weight: 500; margin-bottom: 8px; color: var(--colors-ink-muted); }
+        .form-group { margin-bottom: 24px; text-align: left; }
+        .form-group label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; color: var(--colors-ink-muted); }
         
         .form-control { 
-            width: 100%; padding: 10px 12px; 
+            width: 100%; padding: 12px 14px; 
             background-color: var(--colors-surface-1); 
             border: 1px solid var(--colors-hairline-strong); 
-            border-radius: 8px; font-size: 14px; color: var(--colors-ink);
-            transition: all 0.2s;
+            border-radius: 8px; font-size: 15px; color: var(--colors-ink);
+            transition: all 0.2s ease;
         }
         .form-control:focus { 
             border-color: var(--colors-primary); 
-            outline: 2px solid rgba(77, 86, 179, 0.2); 
+            outline: 3px solid var(--colors-primary-focus); 
         }
         
-        select.form-control { appearance: none; background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23868e96' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; background-size: 16px; padding-right: 40px; }
+        select.form-control { appearance: none; background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23115c32' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; background-size: 16px; padding-right: 44px; }
 
-        /* 달력 컴포넌트 (Surface 1 Lift & 1px Hairline) */
-        .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; background: var(--colors-surface-1); border: 1px solid var(--colors-hairline); border-radius: 12px; padding: 16px; text-align: center; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.02); }
-        .cal-header { font-weight: 500; font-size: 12px; color: var(--colors-ink-subtle); padding-bottom: 8px; }
-        .cal-day { padding: 10px 0; border-radius: 6px; font-size: 14px; cursor: pointer; font-weight: 500; color: var(--colors-ink-muted); transition: all 0.15s; }
-        .cal-day:hover:not(.disabled) { background-color: var(--colors-surface-2); color: var(--colors-ink); }
-        .cal-day.disabled { color: var(--colors-ink-subtle); cursor: not-allowed; opacity: 0.25; }
+        .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; background: var(--colors-surface-1); border: 1px solid var(--colors-hairline); border-radius: 12px; padding: 20px; text-align: center; margin-bottom: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
+        .cal-header { font-weight: 600; font-size: 13px; color: var(--colors-ink-subtle); padding-bottom: 12px; }
+        .cal-day { padding: 12px 0; border-radius: 8px; font-size: 15px; cursor: pointer; font-weight: 500; color: var(--colors-ink-muted); transition: all 0.2s ease; }
+        .cal-day:hover:not(.disabled) { background-color: var(--colors-surface-2); color: var(--colors-primary); }
+        .cal-day.disabled { color: var(--colors-ink-subtle); cursor: not-allowed; opacity: 0.2; }
         
-        /* 선택된 날짜 하이라이트 */
-        .cal-day.selected { background-color: var(--colors-primary) !important; color: #ffffff !important; font-weight: 600; }
-        .sunday { color: #de5246; }
-        .saturday { color: #1a73e8; }
+        .cal-day.selected { background-color: var(--colors-primary) !important; color: #ffffff !important; font-weight: 700; }
+        .sunday { color: #d9534f; }
+        .saturday { color: #0275d8; }
 
-        /* 시간 선택 섹션 */
-        .time-section { display: none; background: var(--colors-surface-1); border: 1px solid var(--colors-hairline); border-radius: 12px; padding: 20px; margin-bottom: 24px; animation: fadeIn 0.3s ease; box-shadow: 0 1px 3px rgba(0,0,0,0.02); }
-        .time-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; text-align: center; }
+        .time-section { display: none; background: var(--colors-surface-1); border: 1px solid var(--colors-hairline); border-radius: 12px; padding: 24px; margin-bottom: 32px; animation: slideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
+        .time-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; text-align: center; }
         .time-box { position: relative; }
         .time-box input[type="radio"] { display: none; }
-        .time-label { display: block; background: var(--colors-canvas); border: 1px solid var(--colors-hairline); border-radius: 8px; padding: 10px; cursor: pointer; font-size: 13px; font-weight: 500; color: var(--colors-ink-muted); transition: all 0.2s; }
-        .time-box input[type="radio"]:checked + .time-label { border-color: var(--colors-primary); background-color: var(--colors-surface-3); color: var(--colors-primary); font-weight: 600; }
+        .time-label { display: block; background: var(--colors-canvas); border: 1px solid var(--colors-hairline); border-radius: 8px; padding: 12px; cursor: pointer; font-size: 14px; font-weight: 500; color: var(--colors-ink-muted); transition: all 0.2s; }
+        .time-box input[type="radio"]:checked + .time-label { border-color: var(--colors-primary); background-color: var(--colors-surface-3); color: var(--colors-primary); font-weight: 700; box-shadow: 0 0 0 1px var(--colors-primary); }
 
-        /* 메인 버튼 (button-primary) */
-        .submit-btn { width: 100%; background-color: var(--colors-primary); color: #ffffff; border: none; padding: 14px; font-size: 14px; font-weight: 500; border-radius: 8px; cursor: pointer; margin-top: 32px; transition: background-color 0.2s, transform 0.1s; letter-spacing: 0; box-shadow: 0 2px 4px rgba(77, 86, 179, 0.15); }
+        .submit-btn { width: 100%; background-color: var(--colors-primary); color: #ffffff; border: none; padding: 16px; font-size: 16px; font-weight: 700; border-radius: 8px; cursor: pointer; margin-top: 40px; transition: background-color 0.2s, transform 0.1s; letter-spacing: -0.3px; box-shadow: 0 4px 12px rgba(17, 92, 50, 0.2); }
         .submit-btn:hover { background-color: var(--colors-primary-hover); }
-        .submit-btn:active { transform: scale(0.99); }
+        .submit-btn:active { transform: scale(0.995); }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(4px); }
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-8px); }
             to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
-
-    <div class="top-nav">
-        <a href="servicepage.html" class="back-btn"> ❮ </a>
-        <div class="header-title">수거 예약</div>
+    <div class="web-nav">
+        <a href="servicepage.html" class="back-btn"> ❮ 서비스 안내로 돌아가기 </a>
+        <div class="header-title">울림 의류 정산 예약 플랫폼</div>
     </div>
 
     <div class="container">
-        <h1>Book a Pickup</h1>
-        <p class="page-desc">정리하실 옷을 문 앞에 두고 신청해 주세요. Linear 가이드라인에 맞춘 미니멀 라이트 폼 인터페이스입니다.</p>
+        <h1>의류 수거 예약 신청</h1>
+        <p class="page-desc">정리할 옷을 문 앞에 두고 양식을 작성해 주시면, 전문 수거 매니저가 지정된 시간에 안전하게 방문하여 자원 순환을 도와드립니다.</p>
         
         <form id="reserveForm" onsubmit="handleReserve(event)">
-            
-            <div class="sub-title">01 / Date & Time</div>
+            <div class="sub-title">01 / 수거 희망 일정 선택</div>
             <div class="calendar-grid">
-                <div class="cal-header sunday">S</div><div class="cal-header">M</div><div class="cal-header">T</div><div class="cal-header">W</div><div class="cal-header">T</div><div class="cal-header">F</div><div class="cal-header saturday">S</div>
+                <div class="cal-header sunday">일</div><div class="cal-header">월</div><div class="cal-header">화</div><div class="cal-header">수</div><div class="cal-header">목</div><div class="cal-header">금</div><div class="cal-header saturday">토</div>
                 
                 <div class="cal-day disabled"></div><div class="cal-day disabled"></div><div class="cal-day disabled"></div><div class="cal-day disabled"></div><div class="cal-day disabled">1</div><div class="cal-day disabled">2</div><div class="cal-day disabled">3</div>
                 <div class="cal-day disabled">4</div><div class="cal-day disabled">5</div><div class="cal-day disabled">6</div><div class="cal-day disabled">7</div><div class="cal-day disabled">8</div><div class="cal-day disabled">9</div><div class="cal-day disabled">10</div>
@@ -121,7 +107,7 @@
             <input type="hidden" id="selectedDate" required>
 
             <div class="time-section" id="timeSection">
-                <div style="font-size: 12px; font-weight: 500; margin-bottom: 12px; color: var(--colors-ink-subtle);">Select preferred timeframe</div>
+                <div style="font-size: 13px; font-weight: 600; margin-bottom: 14px; color: var(--colors-primary);">방문 수거 타임슬롯 지정</div>
                 <div class="time-grid">
                     <div class="time-box"><input type="radio" id="t08" name="pickupTime" value="08:00 ~ 09:00" checked><label for="t08" class="time-label">08:00 - 09:00</label></div>
                     <div class="time-box"><input type="radio" id="t09" name="pickupTime" value="09:00 ~ 10:00"><label for="t09" class="time-label">09:00 - 10:00</label></div>
@@ -135,37 +121,37 @@
                 </div>
             </div>
 
-            <div class="sub-title">02 / Customer Information</div>
+            <div class="sub-title">02 / 예약 정보 및 수량 정보</div>
             <div class="form-group">
-                <label for="userName">신청인 이름</label>
-                <input type="text" id="userName" class="form-control" placeholder="Your name" required>
+                <label for="userName">신청인 성함</label>
+                <input type="text" id="userName" class="form-control" placeholder="성함을 입력해 주세요" required>
             </div>
             <div class="form-group">
                 <label for="userPhone">연락처</label>
                 <input type="tel" id="userPhone" class="form-control" placeholder="010-0000-0000" required>
             </div>
             <div class="form-group">
-                <label for="userAddress">수거 주소</label>
-                <input type="text" id="userAddress" class="form-control" placeholder="Collection address" required>
+                <label for="userAddress">수거지 주소</label>
+                <input type="text" id="userAddress" class="form-control" placeholder="상세 주소 및 공동현관 비밀번호까지 기재해 주세요" required>
             </div>
             
             <div class="form-group">
-                <label for="boxCount">수거할 박스 개수</label>
+                <label for="boxCount">예상 수거 박스 수량</label>
                 <select id="boxCount" class="form-control" required>
                     <option value="" disabled selected>수량을 선택해 주세요</option>
-                    <option value="1개">1 Box</option>
-                    <option value="2개">2 Boxes</option>
-                    <option value="3개 이상 (방문 수거 가능)">3+ Boxes (Pickup eligible)</option>
-                    <option value="5개 이상">5+ Boxes</option>
+                    <option value="1개">1 박스</option>
+                    <option value="2개">2 박스</option>
+                    <option value="3개 이상 (무료 방문 수거 대상)">3 박스 이상 (무료 매니저 방문)</option>
+                    <option value="5개 이상">5 박스 이상 대량 수거</option>
                 </select>
             </div>
 
             <div class="form-group">
-                <label for="userMemo">수거 요청사항 (선택)</label>
-                <input type="text" id="userMemo" class="form-control" placeholder="Leave a note for the carrier">
+                <label for="userMemo">현장 수거 요청사항 (선택)</label>
+                <input type="text" id="userMemo" class="form-control" placeholder="예: 비대면 수거 희망, 문 앞 수거 후 문자 요청 등">
             </div>
 
-            <button type="submit" class="submit-btn">Create Reservation</button>
+            <button type="submit" class="submit-btn">예약 신청 등록하기</button>
         </form>
     </div>
 
@@ -183,19 +169,16 @@
 
         function handleReserve(event) {
             event.preventDefault();
-            
             const date = document.getElementById('selectedDate').value;
             if(!date) {
-                alert('📅 Please select a collection date from the calendar.');
+                alert('📅 수거 희망 날짜를 선택하지 않으셨습니다. 달력에서 날짜를 지정해 주세요.');
                 return;
             }
-
             const time = document.querySelector('input[name="pickupTime"]:checked').value;
             const name = document.getElementById('userName').value;
             const boxes = document.getElementById('boxCount').value;
 
-            alert(`🎉 예약 신청이 정상 접수되었습니다.\n\n• 신청자: ${name}님\n• 확정 날짜: ${date}\n• 방문 시간: ${time}\n• 수거 박스: ${boxes}`);
-            
+            alert(`🎉 울림 의류 수거 예약이 정상적으로 완료되었습니다!\n\n• 신청자: ${name}님\n• 수거 예정일: ${date}\n• 방문 시간: ${time}\n• 신청 수량: ${boxes}`);
             window.location.href = "index.html";
         }
     </script>
