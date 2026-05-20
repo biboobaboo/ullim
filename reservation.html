@@ -8,7 +8,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif; }
         body { background-color: #f5f6f7; color: #333; padding-bottom: 60px; }
         
-        /* 네이버 감성 상단 바 */
+        /* 네이버 감성 상단 바 - '수거 예약'으로 깔끔하게 통일 */
         .naver-header { background-color: #fff; border-bottom: 1px solid #e2e4e7; position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; height: 56px; display: flex; align-items: center; padding: 0 20px; }
         .back-btn { background: none; border: none; font-size: 20px; cursor: pointer; color: #333; margin-right: 15px; text-decoration: none; }
         .header-title { font-size: 18px; font-weight: bold; color: #115c32; }
@@ -17,23 +17,16 @@
         .page-desc { font-size: 14px; color: #666; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px dashed #e2e4e7; }
         
         /* 세션 타이틀 */
-        .sub-title { font-size: 16px; font-weight: bold; margin: 20px 0 10px 0; color: #115c32; display: flex; align-items: center; gap: 6px; }
+        .sub-title { font-size: 16px; font-weight: bold; margin: 25px 0 12px 0; color: #115c32; display: flex; align-items: center; gap: 6px; }
         
-        /* 수거 방식 라디오 버튼 스타일 */
-        .type-container { display: flex; gap: 12px; margin-bottom: 20px; }
-        .type-box { flex: 1; position: relative; }
-        .type-box input[type="radio"] { display: none; }
-        .type-label { display: block; background: #fff; border: 1px solid #ccc; border-radius: 8px; padding: 15px; text-align: center; cursor: pointer; font-weight: 600; font-size: 14px; transition: all 0.2s; }
-        .type-box input[type="radio"]:checked + .type-label { border-color: #4bb543; background-color: #f4f9f4; color: #115c32; box-shadow: 0 0 0 1px #4bb543; }
-
         /* 입력 폼 스타일 */
-        .form-group { margin-bottom: 15px; text-align: left; }
+        .form-group { margin-bottom: 18px; text-align: left; }
         .form-group label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 6px; color: #444; }
         .form-control { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px; background-color: #fff; }
         .form-control:focus { border-color: #4bb543; outline: none; }
 
-        /* 간단 달력 스타일 (네이버 예약 느낌) */
-        .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; background: #fff; border: 1px solid #e2e4e7; border-radius: 8px; padding: 15px; text-align: center; }
+        /* 간단 달력 스타일 */
+        .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; background: #fff; border: 1px solid #e2e4e7; border-radius: 8px; padding: 15px; text-align: center; margin-bottom: 15px; }
         .cal-header { font-weight: bold; font-size: 12px; color: #777; padding-bottom: 10px; }
         .cal-day { padding: 10px 0; border-radius: 5px; font-size: 14px; cursor: pointer; font-weight: 500; }
         .cal-day:hover:not(.disabled) { background-color: #eee; }
@@ -41,6 +34,14 @@
         .cal-day.selected { background-color: #115c32 !important; color: #fff !important; font-weight: bold; }
         .sunday { color: #d9534f; }
         .saturday { color: #0275d8; }
+
+        /* 시간 선택 박스 스타일 (기본 숨김, 날짜 선택시 노출) */
+        .time-section { display: none; background: #fafafa; border: 1px solid #e2e4e7; border-radius: 8px; padding: 15px; }
+        .time-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; text-align: center; }
+        .time-box { position: relative; }
+        .time-box input[type="radio"] { display: none; }
+        .time-label { display: block; background: #fff; border: 1px solid #ccc; border-radius: 6px; padding: 10px; cursor: pointer; font-size: 13px; font-weight: 500; transition: all 0.2s; }
+        .time-box input[type="radio"]:checked + .time-label { border-color: #4bb543; background-color: #f4f9f4; color: #115c32; font-weight: bold; }
 
         /* 하단 예약 버튼 */
         .submit-btn { width: 100%; background-color: #115c32; color: #fff; border: none; padding: 15px; font-size: 16px; font-weight: bold; border-radius: 8px; cursor: pointer; margin-top: 30px; transition: background-color 0.2s; }
@@ -50,8 +51,8 @@
 <body>
 
     <div class="naver-header">
-        <a href="servicepage.html" class="back-btn"> can </a>
-        <div class="header-title">울림 의류수거 예약</div>
+        <a href="servicepage.html" class="back-btn"> ❮ </a>
+        <div class="header-title">수거 예약</div>
     </div>
 
     <div class="container">
@@ -59,19 +60,7 @@
         
         <form id="reserveForm" onsubmit="handleReserve(event)">
             
-            <div class="sub-title">🟢 1. 수거 방식 선택</div>
-            <div class="type-container">
-                <div class="type-box">
-                    <input type="radio" id="type1" name="pickupType" value="울림 픽업 (비대면)" checked>
-                    <label for="type1" class="type-label">🚚 울림 픽업<br><span style="font-size:11px; font-weight:normal; color:#666;">서울/경기 일부 자체 수거</span></label>
-                </div>
-                <div class="type-box">
-                    <input type="radio" id="type2" name="pickupType" value="전국 택배 수거">
-                    <label for="type2" class="type-label">📦 택배 수거<br><span style="font-size:11px; font-weight:normal; color:#666;">전국 어디서나 키트 회수</span></label>
-                </div>
-            </div>
-
-            <div class="sub-title">📅 2. 수거 희망일 선택 (5월)</div>
+            <div class="sub-title">📅 날짜 및 시간 선택</div>
             <div class="calendar-grid">
                 <div class="cal-header sunday">일</div><div class="cal-header">월</div><div class="cal-header">화</div><div class="cal-header">수</div><div class="cal-header">목</div><div class="cal-header">금</div><div class="cal-header saturday">토</div>
                 
@@ -86,7 +75,22 @@
             </div>
             <input type="hidden" id="selectedDate" required>
 
-            <div class="sub-title">📝 3. 예약자 정보 입력</div>
+            <div class="time-section" id="timeSection">
+                <div style="font-size: 13px; font-weight: bold; margin-bottom: 10px; color: #555;">방문 희망 시간 선택</div>
+                <div class="time-grid">
+                    <div class="time-box"><input type="radio" id="t08" name="pickupTime" value="08:00 ~ 09:00" checked><label for="t08" class="type-label time-label">08:00 ~ 09:00</label></div>
+                    <div class="time-box"><input type="radio" id="t09" name="pickupTime" value="09:00 ~ 10:00"><label for="t09" class="type-label time-label">09:00 ~ 10:00</label></div>
+                    <div class="time-box"><input type="radio" id="t10" name="pickupTime" value="10:00 ~ 11:00"><label for="t10" class="type-label time-label">10:00 ~ 11:00</label></div>
+                    <div class="time-box"><input type="radio" id="t11" name="pickupTime" value="11:00 ~ 12:00"><label for="t11" class="type-label time-label">11:00 ~ 12:00</label></div>
+                    <div class="time-box"><input type="radio" id="t12" name="pickupTime" value="12:00 ~ 13:00"><label for="t12" class="type-label time-label">12:00 ~ 13:00</label></div>
+                    <div class="time-box"><input type="radio" id="t13" name="pickupTime" value="13:00 ~ 14:00"><label for="t13" class="type-label time-label">13:00 ~ 14:00</label></div>
+                    <div class="time-box"><input type="radio" id="t14" name="pickupTime" value="14:00 ~ 15:00"><label for="t14" class="type-label time-label">14:00 ~ 15:00</label></div>
+                    <div class="time-box"><input type="radio" id="t15" name="pickupTime" value="15:00 ~ 16:00"><label for="t15" class="type-label time-label">15:00 ~ 16:00</label></div>
+                    <div class="time-box"><input type="radio" id="t16" name="pickupTime" value="16:00 ~ 17:00"><label for="t16" class="type-label time-label">16:00 ~ 17:00</label></div>
+                </div>
+            </div>
+
+            <div class="sub-title">📝 예약자 정보 입력</div>
             <div class="form-group">
                 <label for="userName">신청인 이름</label>
                 <input type="text" id="userName" class="form-control" placeholder="이름을 입력해 주세요" required>
@@ -99,6 +103,18 @@
                 <label for="userAddress">수거 주소</label>
                 <input type="text" id="userAddress" class="form-control" placeholder="상세 주소까지 입력해 주세요" required>
             </div>
+            
+            <div class="form-group">
+                <label for="boxCount">수거할 박스 개수</label>
+                <select id="boxCount" class="form-control" required>
+                    <option value="" disabled selected>박스 수량을 선택해 주세요</option>
+                    <option value="1개">1개</option>
+                    <option value="2개">2개</option>
+                    <option value="3개 이상 (방문 수거 가능)">3개 이상 (방문 수거 가능)</option>
+                    <option value="5개 이상">5개 이상</option>
+                </select>
+            </div>
+
             <div class="form-group">
                 <label for="userMemo">수거 요청사항 (선택)</label>
                 <input type="text" id="userMemo" class="form-control" placeholder="예: 문 앞 벨 x, 경비실에 맡김 등">
@@ -111,16 +127,18 @@
     <script>
         // 날짜 선택 기능
         function selectDate(element, dateStr) {
-            // 기존 선택된 날짜 초기화
             const activeDays = document.querySelectorAll('.cal-day.selected');
             activeDays.forEach(day => day.classList.remove('selected'));
             
-            // 새 날짜 선택
             element.classList.add('selected');
             document.getElementById('selectedDate').value = dateStr;
+
+            // 날짜를 선택하면 시간 박스 애니메이션으로 나타남
+            const timeSection = document.getElementById('timeSection');
+            timeSection.style.display = 'block';
         }
 
-        // 예약 완료 팝업 알림 효과
+        // 예약 완료 처리
         function handleReserve(event) {
             event.preventDefault();
             
@@ -130,12 +148,12 @@
                 return;
             }
 
+            const time = document.querySelector('input[name="pickupTime"]:checked').value;
             const name = document.getElementById('userName').value;
-            const type = document.querySelector('input[name="pickupType"]:checked').value;
+            const boxes = document.getElementById('boxCount').value;
 
-            alert(`🎉 네이버 예약 신청이 정상 접수되었습니다!\n\n• 신청자: ${name}님\n• 수거 방식: ${type}\n• 확정 날짜: ${date}\n\n입력하신 주소로 수거 안내 카카오톡이 발송됩니다.`);
+            alert(`🎉 네이버 예약 신청이 정상 접수되었습니다!\n\n• 신청자: ${name}님\n• 확정 날짜: ${date}\n• 방문 시간: ${time}\n• 수거 박스: ${boxes}\n\n안내 카카오톡이 곧 발송됩니다.`);
             
-            // 예약 완료 후 메인 화면(index.html)으로 이동
             window.location.href = "index.html";
         }
     </script>
