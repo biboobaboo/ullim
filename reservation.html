@@ -6,28 +6,28 @@
     <title>울림 - 수거 예약</title>
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <style>
-        /* Linear Design System Tokens */
+        /* Linear Light Design System Tokens */
         :root {
-            --colors-canvas: #010102;
-            --colors-surface-1: #0e1013;
-            --colors-surface-2: #16191d;
-            --colors-surface-3: #22262c;
-            --colors-primary: #5e6ad2;
-            --colors-primary-hover: #828fff;
-            --colors-primary-focus: #5e69d1;
-            --colors-hairline: #23252a;
-            --colors-hairline-strong: #383c44;
-            --colors-ink: #f7f8f8;
-            --colors-ink-muted: #d0d6e0;
-            --colors-ink-subtle: #8a8f98;
-            --colors-semantic-success: #27a644;
+            --colors-canvas: #f7f8f9;          /* 라이트 모드 기본 캔버스 배경 */
+            --colors-surface-1: #ffffff;      /* 배경 위에 뜨는 하얀색 카드 표면 */
+            --colors-surface-2: #f1f3f5;      /* 호버나 컴포넌트 내 기본 블록 */
+            --colors-surface-3: #e9ecef;      /* 선택된 영역 블록 */
+            --colors-primary: #4d56b3;        /* 가독성이 확보된 밝은 라벤더 블루 */
+            --colors-primary-hover: #3b4293;  /* 호버 시 더 짙어지는 라벤더 */
+            --colors-primary-focus: #4d56b3;
+            --colors-hairline: #e2e4e7;       /* 얇은 경계 실선 */
+            --colors-hairline-strong: #ced4da; /* 강조 경계 실선 */
+            --colors-ink: #121314;            /* 메인 텍스트 (완전 블랙이 아닌 딥 차콜) */
+            --colors-ink-muted: #495057;      /* 서브 텍스트 */
+            --colors-ink-subtle: #868e96;     /* 캡션 및 자리표시자 텍스트 */
+            --colors-semantic-success: #218838;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
         body { background-color: var(--colors-canvas); color: var(--colors-ink); padding-bottom: 60px; -webkit-font-smoothing: antialiased; }
         
         /* 톱 네비게이션 (top-nav) */
-        .top-nav { background-color: var(--colors-canvas); border-bottom: 1px solid var(--colors-hairline); position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; height: 56px; display: flex; align-items: center; padding: 0 24px; }
+        .top-nav { background-color: var(--colors-surface-1); border-bottom: 1px solid var(--colors-hairline); position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; height: 56px; display: flex; align-items: center; padding: 0 24px; }
         .back-btn { background: none; border: none; font-size: 16px; cursor: pointer; color: var(--colors-ink-muted); margin-right: 16px; text-decoration: none; transition: color 0.2s; }
         .back-btn:hover { color: var(--colors-ink); }
         .header-title { font-size: 14px; font-weight: 500; letter-spacing: -0.05px; color: var(--colors-ink); }
@@ -47,43 +47,43 @@
         .form-group label { display: block; font-size: 13px; font-weight: 500; margin-bottom: 8px; color: var(--colors-ink-muted); }
         
         .form-control { 
-            width: 100%; padding: 8px 12px; 
+            width: 100%; padding: 10px 12px; 
             background-color: var(--colors-surface-1); 
-            border: 1px solid var(--colors-hairline); 
+            border: 1px solid var(--colors-hairline-strong); 
             border-radius: 8px; font-size: 14px; color: var(--colors-ink);
             transition: all 0.2s;
         }
         .form-control:focus { 
-            border-color: var(--colors-hairline-strong); 
-            outline: 2px solid rgba(94, 105, 209, 0.5); /* 4단계 포커스 링 */
+            border-color: var(--colors-primary); 
+            outline: 2px solid rgba(77, 86, 179, 0.2); 
         }
         
-        select.form-control { appearance: none; background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%238a8f98' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; background-size: 16px; padding-right: 40px; }
+        select.form-control { appearance: none; background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23868e96' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; background-size: 16px; padding-right: 40px; }
 
         /* 달력 컴포넌트 (Surface 1 Lift & 1px Hairline) */
-        .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; background: var(--colors-surface-1); border: 1px solid var(--colors-hairline); border-radius: 12px; padding: 16px; text-align: center; margin-bottom: 20px; }
+        .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; background: var(--colors-surface-1); border: 1px solid var(--colors-hairline); border-radius: 12px; padding: 16px; text-align: center; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.02); }
         .cal-header { font-weight: 500; font-size: 12px; color: var(--colors-ink-subtle); padding-bottom: 8px; }
         .cal-day { padding: 10px 0; border-radius: 6px; font-size: 14px; cursor: pointer; font-weight: 500; color: var(--colors-ink-muted); transition: all 0.15s; }
         .cal-day:hover:not(.disabled) { background-color: var(--colors-surface-2); color: var(--colors-ink); }
-        .cal-day.disabled { color: var(--colors-ink-tertiary, #444); cursor: not-allowed; opacity: 0.2; }
+        .cal-day.disabled { color: var(--colors-ink-subtle); cursor: not-allowed; opacity: 0.25; }
         
-        /* 달력 날짜 선택시 Surface 2에서 라벤더 포인트로 대조 효과 */
-        .cal-day.selected { background-color: var(--colors-primary) !important; color: #fff !important; font-weight: 600; }
-        .sunday { color: #e57373; }
-        .saturday { color: #64b5f6; }
+        /* 선택된 날짜 하이라이트 */
+        .cal-day.selected { background-color: var(--colors-primary) !important; color: #ffffff !important; font-weight: 600; }
+        .sunday { color: #de5246; }
+        .saturday { color: #1a73e8; }
 
-        /* 시간 선택 섹션 (기본 숨김, 애니메이션 탑재) */
-        .time-section { display: none; background: var(--colors-surface-1); border: 1px solid var(--colors-hairline); border-radius: 12px; padding: 20px; margin-bottom: 24px; animation: fadeIn 0.3s ease; }
+        /* 시간 선택 섹션 */
+        .time-section { display: none; background: var(--colors-surface-1); border: 1px solid var(--colors-hairline); border-radius: 12px; padding: 20px; margin-bottom: 24px; animation: fadeIn 0.3s ease; box-shadow: 0 1px 3px rgba(0,0,0,0.02); }
         .time-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; text-align: center; }
         .time-box { position: relative; }
         .time-box input[type="radio"] { display: none; }
-        .time-label { display: block; background: var(--colors-surface-2); border: 1px solid var(--colors-hairline); border-radius: 8px; padding: 10px; cursor: pointer; font-size: 13px; font-weight: 500; color: var(--colors-ink-muted); transition: all 0.2s; }
-        .time-box input[type="radio"]:checked + .time-label { border-color: var(--colors-primary); background-color: var(--colors-surface-3); color: var(--colors-ink); font-weight: 600; }
+        .time-label { display: block; background: var(--colors-canvas); border: 1px solid var(--colors-hairline); border-radius: 8px; padding: 10px; cursor: pointer; font-size: 13px; font-weight: 500; color: var(--colors-ink-muted); transition: all 0.2s; }
+        .time-box input[type="radio"]:checked + .time-label { border-color: var(--colors-primary); background-color: var(--colors-surface-3); color: var(--colors-primary); font-weight: 600; }
 
         /* 메인 버튼 (button-primary) */
-        .submit-btn { width: 100%; background-color: var(--colors-primary); color: #fff; border: none; padding: 12px 14px; font-size: 14px; font-weight: 500; border-radius: 8px; cursor: pointer; margin-top: 32px; transition: background-color 0.2s, transform 0.1s; letter-spacing: 0; }
+        .submit-btn { width: 100%; background-color: var(--colors-primary); color: #ffffff; border: none; padding: 14px; font-size: 14px; font-weight: 500; border-radius: 8px; cursor: pointer; margin-top: 32px; transition: background-color 0.2s, transform 0.1s; letter-spacing: 0; box-shadow: 0 2px 4px rgba(77, 86, 179, 0.15); }
         .submit-btn:hover { background-color: var(--colors-primary-hover); }
-        .submit-btn:active { background-color: var(--colors-primary-focus); transform: scale(0.99); }
+        .submit-btn:active { transform: scale(0.99); }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(4px); }
@@ -100,7 +100,7 @@
 
     <div class="container">
         <h1>Book a Pickup</h1>
-        <p class="page-desc">정리하실 옷을 문 앞에 두고 신청해 주세요. Linear 가이드라인에 맞춘 미니멀 폼 인터페이스입니다.</p>
+        <p class="page-desc">정리하실 옷을 문 앞에 두고 신청해 주세요. Linear 가이드라인에 맞춘 미니멀 라이트 폼 인터페이스입니다.</p>
         
         <form id="reserveForm" onsubmit="handleReserve(event)">
             
@@ -194,7 +194,7 @@
             const name = document.getElementById('userName').value;
             const boxes = document.getElementById('boxCount').value;
 
-            alert(`🎉 예약 신청이 정상 접수되었습니다.\n\n• 신청자: ${name}님\n• 확정 날짜: ${date}\n• 방문 시간: ${time}\n• 수거 박스: ${boxes}\n\nLinear UI 가이드 양식에 따라 메인 대시보드로 이동합니다.`);
+            alert(`🎉 예약 신청이 정상 접수되었습니다.\n\n• 신청자: ${name}님\n• 확정 날짜: ${date}\n• 방문 시간: ${time}\n• 수거 박스: ${boxes}`);
             
             window.location.href = "index.html";
         }
