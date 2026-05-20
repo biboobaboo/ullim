@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>울림 - 나눔과 순환</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { color: #333; line-height: 1.6; background-color: #f9f9f9; }
+        :root { --primary-color: #115c32; --point-color: #4bb543; --bg-light: #f4f9f4; }
+        header { position: fixed; top: 0; left: 0; width: 100%; background-color: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.05); z-index: 1000; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 20px; }
+        .logo a { font-size: 24px; font-weight: bold; color: var(--primary-color); text-decoration: none; letter-spacing: 1px; }
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 30px; }
+        nav ul li a { text-decoration: none; color: #555; font-weight: 600; font-size: 16px; transition: color 0.3s; }
+        nav ul li a:hover { color: var(--primary-color); }
+        section { padding: 100px 20px 80px 20px; min-height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        .section-title { font-size: 32px; color: var(--primary-color); margin-bottom: 20px; font-weight: 700; }
+        .section-desc { font-size: 18px; color: #666; max-width: 800px; margin-bottom: 40px; }
+        #home { background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1600&q=80'); background-size: cover; background-position: center; min-height: 100vh; }
+        #home h1 { font-size: 48px; color: var(--primary-color); margin-bottom: 20px; }
+        .btn-link { display: inline-block; background-color: var(--primary-color); color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 30px; font-weight: bold; font-size: 16px; transition: background-color 0.3s, transform 0.2s; box-shadow: 0 4px 15px rgba(17, 92, 50, 0.2); }
+        .btn-link:hover { background-color: #0b3d21; transform: translateY(--2px); }
+        #about { background-color: #fff; }
+        #activities { background-color: var(--bg-light); }
+        .card-container { display: flex; gap: 20px; max-width: 1200px; justify-content: center; flex-wrap: wrap; }
+        .card { background: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.03); width: 280px; text-align: left; border-top: 4px solid var(--primary-color); }
+        .card h3 { color: var(--primary-color); margin-bottom: 15px; font-size: 20px; }
+        #donation { background-color: #fff; }
+        .donation-methods { display: flex; gap: 30px; margin-bottom: 40px; }
+        .method-box { background: var(--bg-light); padding: 25px 40px; border-radius: 10px; font-weight: bold; color: var(--primary-color); }
+        #cs { background-color: #f1f3f1; }
+        .cs-info { font-size: 22px; font-weight: bold; color: #333; margin-bottom: 15px; }
+        .cs-time { color: #777; margin-bottom: 30px; }
+        footer { background-color: #333; color: #fff; padding: 30px 20px; text-align: center; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo"><a href="index.html">울림</a></div>
+            <nav>
+                <ul>
+                    <li><a href="#about">소개</a></li>
+                    <li><a href="#activities">활동</a></li>
+                    <li><a href="#donation">물품기부</a></li>
+                    <li><a href="#cs">고객센터</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section id="home">
+        <h1>모두가 참여하는 재순환과 나눔</h1>
+        <p class="section-desc">그물코처럼 얽힌 세상, 나눔과 순환으로 바꾸는 따뜻한 '울림'에 함께 동참해주세요.</p>
+        <a href="https://www.beautifulstore.org" target="_blank" class="btn-link">울림 공식 사이트 방문하기</a>
+    </section>
+    <section id="about">
+        <h2 class="section-title">울림 소개</h2>
+        <p class="section-desc">울림은 시민들이 사용하지 않는 물품을 기부받아 재가공 후 판매하며, 그 수익금으로 소외된 이웃을 돕고 공익활동을 지원하는 사회적 기업이자 비영리 단체입니다.</p>
+        <div class="card-container">
+            <div class="card">
+                <h3>비전 (Vision)</h3>
+                <p>모두가 참여하는 재순환과 나눔의 아름다운 세상 만들기</p>
+            </div>
+            <div class="card">
+                <h3>가치 (Value)</h3>
+                <p>그물코 정신(연대), 되살림(친환경), 비움과 나눔의 실천</p>
+            </div>
+        </div>
+        <br><br>
+        <a href="https://www.beautifulstore.org/intro/vision" target="_blank" class="btn-link">울림 소개 자세히 보기</a>
+    </section>
+    <section id="activities">
+        <h2 class="section-title">주요 활동</h2>
+        <p class="section-desc">지구를 살리는 친환경 세상과 이웃을 보듬는 따뜻한 문화를 만들어갑니다.</p>
+        <div class="card-container">
+            <div class="card">
+                <h3>재사용 매장 운영</h3>
+                <p>전국 매장에서 기부 물품을 합리적인 가격에 판매합니다.</p>
+            </div>
+            <div class="card">
+                <h3>소외이웃 배분사업</h3>
+                <p>수익금을 통해 지역사회 취약계층의 생계비, 주거비 등을 지원합니다.</p>
+            </div>
+            <div class="card">
+                <h3>환경 캠페인</h3>
+                <p>자원 순환의 중요성을 알리고 업사이클링 문화를 전파합니다.</p>
+            </div>
+        </div>
+        <br><br>
+        <a href="https://www.beautifulstore.org/archives/category/story/activity" target="_blank" class="btn-link">울림 활동 스토리 보기</a>
+    </section>
+    <section id="donation">
+        <h2 class="section-title">물품기부 안내</h2>
+        <p class="section-desc">나에게는 필요 없지만 누군가에게는 바로 사용될 수 있는 소중한 물건을 나누어주세요. 기부하신 물품은 소득공제 혜택을 받으실 수 있습니다.</p>
+        <div class="donation-methods">
+            <div class="method-box">🙋‍♂️ 매장방문 기부</div>
+            <div class="method-box">📦 온라인 택배 기부</div>
+            <div class="method-box">🚚 3박스 이상 방문수거</div>
+        </div>
+        <a href="servicepage.html" class="btn-link">울림 물품기부 신청하기</a>
+    </section>
+    <section id="cs">
+        <h2 class="section-title">고객센터</h2>
+        <p class="section-desc">궁금한 점이 있으시거나 도움이 필요하시면 언제든 연락해 주세요.</p>
+        <div class="cs-info">대표전화 : 1577-1113</div>
+        <div class="cs-time">운영시간: 월~금 09:00 ~ 18:00 (점심시간 12:00 ~ 13:00)</div>
+        <a href="https://www.beautifulstore.org/faq" target="_blank" class="btn-link">자주 묻는 질문(FAQ)</a>
+    </section>
+    <footer>
+        <p>© 울림 스타일 바이브 코딩 실습 페이지. 본 페이지는 학습용으로 제작되었습니다.</p>
+    </footer>
+</body>
+</html>
