@@ -7,18 +7,18 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
     <style>
         :root {
-            --colors-canvas: #f8faf7;
+            --colors-canvas: #f4f8f8;
             --colors-surface-1: #ffffff;
-            --colors-surface-2: #edf2ec;
-            --colors-surface-3: #dbe5da;
-            --colors-primary: #115c32;
-            --colors-primary-hover: #0b3d21;
-            --colors-primary-focus: rgba(17, 92, 50, 0.2);
-            --colors-hairline: #e1e6e0;
-            --colors-hairline-strong: #b9c4b7;
-            --colors-ink: #1a1c1a;
-            --colors-ink-muted: #4a504a;
-            --colors-ink-subtle: #828a81;
+            --colors-surface-2: #e6f0f0;
+            --colors-surface-3: #cce5e5;
+            --colors-primary: #008080; /* 청록색 (Teal) */
+            --colors-primary-hover: #006666;
+            --colors-primary-focus: rgba(0, 128, 128, 0.2);
+            --colors-hairline: #e0ecec;
+            --colors-hairline-strong: #b3d1d1;
+            --colors-ink: #141a1a;
+            --colors-ink-muted: #3d4d4d;
+            --colors-ink-subtle: #708585;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif; }
@@ -50,7 +50,7 @@
             outline: 3px solid var(--colors-primary-focus); 
         }
         
-        select.form-control { appearance: none; background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23115c32' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; background-size: 16px; padding-right: 44px; }
+        select.form-control { appearance: none; background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23008080' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; background-size: 16px; padding-right: 44px; }
 
         .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; background: var(--colors-surface-1); border: 1px solid var(--colors-hairline); border-radius: 12px; padding: 20px; text-align: center; margin-bottom: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
         .cal-header { font-weight: 600; font-size: 13px; color: var(--colors-ink-subtle); padding-bottom: 12px; }
@@ -69,7 +69,7 @@
         .time-label { display: block; background: var(--colors-canvas); border: 1px solid var(--colors-hairline); border-radius: 8px; padding: 12px; cursor: pointer; font-size: 14px; font-weight: 500; color: var(--colors-ink-muted); transition: all 0.2s; }
         .time-box input[type="radio"]:checked + .time-label { border-color: var(--colors-primary); background-color: var(--colors-surface-3); color: var(--colors-primary); font-weight: 700; box-shadow: 0 0 0 1px var(--colors-primary); }
 
-        .submit-btn { width: 100%; background-color: var(--colors-primary); color: #ffffff; border: none; padding: 16px; font-size: 16px; font-weight: 700; border-radius: 8px; cursor: pointer; margin-top: 40px; transition: background-color 0.2s, transform 0.1s; letter-spacing: -0.3px; box-shadow: 0 4px 12px rgba(17, 92, 50, 0.2); }
+        .submit-btn { width: 100%; background-color: var(--colors-primary); color: #ffffff; border: none; padding: 16px; font-size: 16px; font-weight: 700; border-radius: 8px; cursor: pointer; margin-top: 40px; transition: background-color 0.2s, transform 0.1s; letter-spacing: -0.3px; box-shadow: 0 4px 12px rgba(0, 128, 128, 0.2); }
         .submit-btn:hover { background-color: var(--colors-primary-hover); }
         .submit-btn:active { transform: scale(0.995); }
 
@@ -78,7 +78,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* 📱 모바일 화면 전용 조정 */
         @media (max-width: 768px) {
             .web-nav { padding: 0 20px; }
             .container { margin-top: 100px; padding: 0 16px; }
@@ -86,7 +85,7 @@
             .page-desc { font-size: 15px; margin-bottom: 24px; }
             .calendar-grid { padding: 12px; gap: 4px; }
             .cal-day { padding: 8px 0; font-size: 14px; }
-            .time-grid { grid-template-columns: repeat(2, 1fr); } /* 폰에서는 2열 배치가 더 가독성이 좋습니다 */
+            .time-grid { grid-template-columns: repeat(2, 1fr); }
             .submit-btn { padding: 14px; font-size: 15px; }
         }
     </style>

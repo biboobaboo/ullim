@@ -7,18 +7,18 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
     <style>
         :root {
-            --colors-canvas: #f8faf7;
+            --colors-canvas: #f4f8f8;
             --colors-surface-1: #ffffff;
-            --colors-surface-2: #edf2ec;
-            --colors-surface-3: #dbe5da;
-            --colors-primary: #115c32;
-            --colors-primary-hover: #0b3d21;
-            --colors-primary-focus: rgba(17, 92, 50, 0.15);
-            --colors-hairline: #e1e6e0;
-            --colors-hairline-strong: #b9c4b7;
-            --colors-ink: #1a1c1a;
-            --colors-ink-muted: #4a504a;
-            --colors-ink-subtle: #828a81;
+            --colors-surface-2: #e6f0f0;
+            --colors-surface-3: #cce5e5;
+            --colors-primary: #008080; /* 청록색 (Teal) */
+            --colors-primary-hover: #006666;
+            --colors-primary-focus: rgba(0, 128, 128, 0.15);
+            --colors-hairline: #e0ecec;
+            --colors-hairline-strong: #b3d1d1;
+            --colors-ink: #141a1a;
+            --colors-ink-muted: #3d4d4d;
+            --colors-ink-subtle: #708585;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif; }
@@ -39,12 +39,12 @@
         .section-desc { font-size: 17px; color: var(--colors-ink-muted); max-width: 720px; margin-bottom: 48px; line-height: 1.6; }
         
         #home { 
-            background: linear-gradient(rgba(248,250,247,0.85), rgba(248,250,247,0.9)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1600&q=80'); 
+            background: linear-gradient(rgba(244,248,248,0.85), rgba(244,248,248,0.9)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1600&q=80'); 
             background-size: cover; background-position: center; min-height: 100vh; 
         }
         #home h1 { font-size: 48px; font-weight: 800; color: var(--colors-primary); margin-bottom: 20px; letter-spacing: -1.5px; }
         
-        .btn-link { display: inline-block; background-color: var(--colors-primary); color: #ffffff; padding: 14px 36px; text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 15px; transition: background-color 0.2s, transform 0.1s; box-shadow: 0 4px 12px rgba(17, 92, 50, 0.15); letter-spacing: -0.2px; }
+        .btn-link { display: inline-block; background-color: var(--colors-primary); color: #ffffff; padding: 14px 36px; text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 15px; transition: background-color 0.2s, transform 0.1s; box-shadow: 0 4px 12px rgba(0, 128, 128, 0.15); letter-spacing: -0.2px; }
         .btn-link:hover { background-color: var(--colors-primary-hover); }
         .btn-link:active { transform: scale(0.98); }
         
@@ -65,10 +65,9 @@
         .cs-info { font-size: 28px; font-weight: 700; color: var(--colors-primary); margin-bottom: 8px; letter-spacing: -0.5px; }
         .cs-time { font-size: 15px; color: var(--colors-ink-muted); margin-bottom: 40px; }
         
-        footer { background-color: var(--colors-ink); color: var(--colors-ink-subtle); padding: 40px 20px; text-align: center; font-size: 14px; border-top: 1px solid var(--colors-hairline); }
+        footer { background-color: #1a2424; color: var(--colors-ink-subtle); padding: 40px 20px; text-align: center; font-size: 14px; border-top: 1px solid var(--colors-hairline); }
         footer p { max-width: 1200px; margin: 0 auto; letter-spacing: -0.2px; }
 
-        /* 📱 스마트폰 화면 전용 자동 폰트 축소 시스템 */
         @media (max-width: 768px) {
             .nav-container { padding: 0 20px; }
             nav ul li { margin-left: 16px; }
@@ -148,7 +147,7 @@
         <h2 class="section-title">물품기부 안내</h2>
         <p class="section-desc">나에게는 필요 없지만 누군가에게는 바로 사용될 수 있는 소중한 물건을 나누어주세요. 기부하신 물품은 소득공제 혜택을 받으실 수 있습니다.</p>
         <div class="donation-methods">
-            <div class="method-box">🙋‍♂️ 매장방문 기부</div>
+            <div class="method-box">🙋‍️ 매장방문 기부</div>
             <div class="method-box">📦 온라인 택배 기부</div>
             <div class="method-box">🚚 3박스 이상 방문수거</div>
         </div>
@@ -164,7 +163,7 @@
     </section>
 
     <footer>
-        <p>© 울림 스타일 바이브 코딩 실습 페이지. 본 페이지는 학습용으로 제작되었습니다.</p>
+        <p> 울림 스타일 바이브 코딩 실습 페이지. 본 페이지는 학습용으로 제작되었습니다.</p>
     </footer>
 </body>
 </html>
