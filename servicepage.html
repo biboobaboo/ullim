@@ -10,7 +10,7 @@
             --colors-canvas: #f4f8f8;
             --colors-surface-1: #ffffff;
             --colors-surface-2: #e6f0f0;
-            --colors-primary: #008080; /* 청록색 (Teal) */
+            --colors-primary: #008080;
             --colors-primary-hover: #006666;
             --colors-hairline: #e0ecec;
             --colors-hairline-strong: #b3d1d1;
@@ -29,15 +29,14 @@
         h1 { font-size: 36px; font-weight: 700; color: var(--colors-primary); margin-bottom: 16px; letter-spacing: -1.0px; text-align: center; }
         .page-desc { font-size: 17px; color: var(--colors-ink-muted); text-align: center; margin-bottom: 48px; }
 
-        .info-section { background-color: var(--colors-surface-1); padding: 40px; border-radius: 12px; border: 1px solid var(--colors-hairline); margin-bottom: 32px; box-shadow: 0 4px 12px rgba(0,0,0,0.01); }
-        .info-section h2 { font-size: 22px; color: var(--colors-primary); margin-bottom: 20px; font-weight: 700; }
+        .info-section { background-color: var(--colors-surface-1); padding: 40px; border-radius: 12px; border: 1px solid var(--colors-hairline); margin-bottom: 32px; box-shadow: 0 4px 12 rgba(0,0,0,0.01); }
+        .info-section h2 { font-size: 22px; color: var(--colors-primary); margin-bottom: 20px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
         .info-section ul { list-style-position: inside; margin-bottom: 20px; color: var(--colors-ink-muted); }
         .info-section ul li { margin-bottom: 8px; }
 
         .btn-box { text-align: center; margin-top: 48px; }
         .btn-link { display: inline-block; background-color: var(--colors-primary); color: #ffffff; padding: 16px 48px; text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 16px; transition: background-color 0.2s, transform 0.1s; box-shadow: 0 4px 12px rgba(0, 128, 128, 0.15); }
         .btn-link:hover { background-color: var(--colors-primary-hover); }
-        .btn-link:active { transform: scale(0.98); }
 
         @media (max-width: 768px) {
             .nav-container { padding: 0 20px; }
@@ -59,37 +58,36 @@
     </header>
 
     <div class="container">
-        <h1>의류 수거 및 기부 프로세스 안내</h1>
-        <p class="page-desc">소중한 옷들이 버려지지 않고 필요한 이웃에게 전달될 수 있도록 상세 기준을 안내해 드립니다.</p>
+        <h1>의류 수거 가이드 및 가치 정산 안내</h1>
+        <p class="page-desc">보내주신 의류는 이주민 파트너들의 손을 거쳐 분류되며 법정 소득공제금액으로 환산됩니다.</p>
 
         <div class="info-section">
-            <h2>기부 및 수거 가능 품목</h2>
+            <h2>👕 수거 가능 품목</h2>
             <ul>
-                <li>세탁을 완료하여 오염이 없는 상의, 하의, 외투 일체</li>
-                <li>착용이 가능한 깨끗한 상태의 가방 및 신발류</li>
-                <li>새 상품 상태의 침구류 및 패브릭 소품</li>
+                <li>세탁을 완료하여 오염과 찢어짐이 없는 일반 남녀 의류 및 아동복</li>
+                <li>외투류(패딩, 코트), 가방, 신발 등 정상 착용이 가능한 상태의 잡화</li>
             </ul>
         </div>
 
         <div class="info-section">
-            <h2>수거 불가능 품목 (폐기 대상)</h2>
+            <h2>❌ 수거 불가능 품목 (기부 정산 제외)</h2>
             <ul>
-                <li>심한 오염, 헤짐, 단추 떨어짐, 지퍼 고장 물품</li>
-                <li>유니폼, 단체복, 바퀴 달린 신발 등 재판매가 어려운 의류</li>
-                <li>사용했던 이불, 베개, 커튼 등의 침구류</li>
+                <li>단체복, 유니폼, 심한 보풀이나 오염이 확인되는 의류</li>
+                <li>바퀴 달린 신발, 훼손된 침구류, 내의류 및 사용한 수건류</li>
             </ul>
         </div>
 
         <div class="info-section">
-            <h2>수거 방식 선택 가이드</h2>
+            <h2>📈 기부금 가치 산정 및 영수증 발행 프로세스</h2>
             <ul>
-                <li><strong>매장 방문 / 택배:</strong> 수량 제한 없이 소량 기부 가능</li>
-                <li><strong>방문 수거:</strong> 수거용 박스 또는 대형 봉투 기준 3박스 이상 시 무료 방문 예약 가능</li>
+                <li><strong>품목 분류:</strong> 수거된 의류는 이주민 매니저가 재판매 가능 등급(A~C)으로 분류합니다.</li>
+                <li><strong>금액 산정:</strong> 아름다운가게/굿윌스토어 표준 산정단가를 준용하여 평균 단가를 매겨 기부 금액을 책정합니다.</li>
+                <li><strong>소득공제 연동:</strong> 예약 신청 시 입력한 번호로 국세청 홈택스에 연말정산 기부금 영수증이 자동 등록됩니다.</li>
             </ul>
         </div>
 
         <div class="btn-box">
-            <a href="reservation.html" class="btn-link">기부 및 수거 신청하기</a>
+            <a href="reservation.html" class="btn-link">가치 기부 신청 및 수거 예약하기</a>
         </div>
     </div>
 </body>
